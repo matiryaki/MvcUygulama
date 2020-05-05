@@ -1,0 +1,51 @@
+﻿@using MvcUygulama.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>UrunEkle</title>
+</head>
+<body>
+    <div>
+        <form action="/Product/UrunEkle" method="post"> <!--Verileri Contorlera göndermek için verileri "form" içine alırız -->
+            <p>Urun Adı : </p>                          <!--Action da formun hangi controlerın methoduna gönderileceği method da hangi                                                işlemi yapan method olduğu belirtilir.-->
+            <input type="text" name="Ad" value="" />
+            <br />
+            <p>Fiyat : </p>
+            <input type="number" name="Fiyat" value="" />
+            <br />
+            <p>Stok : </p>
+            <input type="number" name="Stok" value="" />
+            <br />
+            <p>Kategori : </p>
+            <select name="cId">
+                @foreach (Categories c in ViewBag.Categoriler)
+                {
+                    <option value="@c.CategoryID">@c.CategoryName</option>
+                }
+
+            </select>
+            <br />
+            <p>Tedarikçi : </p>
+
+            <select name="tId">
+                @foreach (Suppliers sup in ViewBag.Supplier)
+                {
+                    <option value="@sup.SupplierID">@sup.CompanyName</option>
+                }
+            </select>
+            <br />
+            <br />
+            <br />
+            <a href="~/Views/Product/Index.cshtml">İptal</a>
+            <input type="submit" name="" value="Kaydet" /><!--Form verilerini belirtilen yere gönderme işlemini gerçekleştirir.-->
+        </form>
+
+    </div>
+</body> 
+</html>

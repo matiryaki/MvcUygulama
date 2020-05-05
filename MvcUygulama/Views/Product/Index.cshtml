@@ -1,0 +1,66 @@
+﻿@using MvcUygulama.Models
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style>
+        table,th,td{
+            border: 2px solid black;
+                 border-collapse:collapse;       
+        }
+    </style>
+    
+</head>
+<body>
+    <div> 
+        <table>
+            <thead>
+                <tr>
+                    <th>Product Name</th>
+                    <th>Unit Price</th>   
+                    <th>Unit in Stock</th>   
+                    <th>Supplier Id</th>   
+                    <th>Category Id</th>   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Products u in ViewBag.Urunler)
+                {
+                    <tr>
+                        <td>@u.ProductName</td>
+                        <td>@u.UnitPrice</td>
+                        <td>@u.UnitsInStock</td>
+                        <td>@u.SupplierID</td>
+                        <td>@u.CategoryID</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+        <table>
+            <thead>
+                <tr>
+                    <th>Category Name</th>
+                    <th>Description</th>
+                </tr>  
+            </thead>
+            <tbody>
+                @foreach (Categories c in ViewBag.Categoriler)
+                {
+                    <tr>
+                        <td>@c.CategoryName</td>
+                        <td>@c.Description</td>
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
